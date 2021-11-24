@@ -1,0 +1,10 @@
+C:\Users\Kycool13\Documents\GitHub\LeetCode\LeetCode\Set\VMWareSet\bin\Debug\netstandard2.0\VMWareSet.deps.json
+C:\Users\Kycool13\Documents\GitHub\LeetCode\LeetCode\Set\VMWareSet\bin\Debug\netstandard2.0\VMWareSet.dll
+C:\Users\Kycool13\Documents\GitHub\LeetCode\LeetCode\Set\VMWareSet\bin\Debug\netstandard2.0\VMWareSet.pdb
+C:\Users\Kycool13\Documents\GitHub\LeetCode\LeetCode\Set\VMWareSet\obj\Debug\netstandard2.0\VMWareSet.csproj.CoreCompileInputs.cache
+C:\Users\Kycool13\Documents\GitHub\LeetCode\LeetCode\Set\VMWareSet\obj\Debug\netstandard2.0\VMWareSet.AssemblyInfoInputs.cache
+C:\Users\Kycool13\Documents\GitHub\LeetCode\LeetCode\Set\VMWareSet\obj\Debug\netstandard2.0\VMWareSet.AssemblyInfo.cs
+C:\Users\Kycool13\Documents\GitHub\LeetCode\LeetCode\Set\VMWareSet\obj\Debug\netstandard2.0\VMWareSet.dll
+C:\Users\Kycool13\Documents\GitHub\LeetCode\LeetCode\Set\VMWareSet\obj\Debug\netstandard2.0\VMWareSet.pdb
+c:\Users\Kycool13\Documents\GitHub\LeetCode\LeetCode\Set\VMWareSet\obj\Debug\netstandard2.0\VMWareSet.csproj.AssemblyReference.cache
+c:\Users\Kycool13\Documents\GitHub\LeetCode\LeetCode\Set\VMWareSet\obj\Debug\netstandard2.0\VMWareSet.GeneratedMSBuildEditorConfig.editorconfig

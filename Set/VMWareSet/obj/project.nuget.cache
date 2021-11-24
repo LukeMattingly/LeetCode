@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "qBEF99YXRQw0/EaFbfqVU+s2FoWUyWa0smGrdyYPhhzaKF+cht0Fbby6xj81PlF1c/V+V7CiBQuoUpSJLX/0Jg==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\Kycool13\\Documents\\GitHub\\LeetCode\\LeetCode\\Set\\VMWareSet\\VMWareSet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
