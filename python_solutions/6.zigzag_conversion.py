@@ -1,5 +1,4 @@
 import unittest
-import numpy as np
 
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
@@ -25,7 +24,7 @@ class Solution:
 
 
 class testAddTwoNumbers(unittest.TestCase):
-    def test_convert(self):
+    def test_convert_3(self):
         solution = Solution()
         ans = "PAHNAPLSIIGYIR"
         self.assertEqual(solution.convert("PAYPALISHIRING", 3), ans)
