@@ -1,5 +1,4 @@
 from typing import List
-from string import digits
 import unittest
 
 class Solution:
