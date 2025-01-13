@@ -1,13 +1,12 @@
 from typing import List
 import unittest
-from collections import deque
 
 class Solution():
     def isValid(self, s: str) -> bool:
         if len(s) <= 1:
             return False
         
-        stack = deque()
+        stack = []
         
         paren_map = {
             "]":"[",
