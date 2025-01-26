@@ -4,16 +4,14 @@ from collections import defaultdict
 
 class Solution():
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
-        print("problem start")
         result = [0] * len(temperatures)
         mono_decrease_stack = []
 
         for i, temp in enumerate(temperatures):
             while mono_decrease_stack and temp > temperatures[mono_decrease_stack[-1]]: #current temp is large than top element on decreasing stack
                 index = mono_decrease_stack.pop()
-                result[index] = i - index #current index - stored index
+                result[index] = i - index #current index - stored index to cacluate the difference
             mono_decrease_stack.append(i) #storing indexes in stack
-            print(mono_decrease_stack)
         return result
 
 
