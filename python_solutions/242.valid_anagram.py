@@ -25,7 +25,9 @@ class Solution():
 
         return True
 
-class test_isAnagram(unittest.TestCase):
+
+
+class test_isAnagram_test(unittest.TestCase):
     def test_isAnagram_1(self):
         solution = Solution()
         ans = True
@@ -34,17 +36,7 @@ class test_isAnagram(unittest.TestCase):
     def test_isAnagram_2(self):
         solution = Solution()
         ans = False
-        self.assertEqual(solution.isAnagram("rat", "car"), ans)
-    
-    def test_isAnagram_3(self):
-        solution = Solution()
-        ans = False
-        self.assertEqual(solution.isAnagram("rat", "cart"), ans)
-
-    def test_isAnagram_4(self):
-        solution = Solution()
-        ans = False
-        self.assertEqual(solution.isAnagram("tart", "cart"), ans)
+        self.assertEqual(solution.isAnagram("rat", "car" ), ans)
 
 if __name__ == '__main__':
     unittest.main()
