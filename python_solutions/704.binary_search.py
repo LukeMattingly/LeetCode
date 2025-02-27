@@ -8,7 +8,7 @@ class Solution():
         right = len(nums)-1
 
         while left <= right:
-            middle_index = (left + right) // 2
+            middle_index = left + ((right - left) // 2)
             middle_value = nums[middle_index]
             if target > middle_value:
                 left = middle_index + 1
