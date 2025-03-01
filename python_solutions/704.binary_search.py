@@ -4,18 +4,17 @@ from collections import defaultdict
 
 class Solution():
     def search(self, nums: List[int], target: int) -> int:
-        left = 0
-        right = len(nums)-1
+        l = 0
+        r = len(nums) -1
 
-        while left <= right:
-            middle_index = left + ((right - left) // 2)
-            middle_value = nums[middle_index]
-            if target > middle_value:
-                left = middle_index + 1
-            if target < middle_value:
-                right = middle_index - 1
-            if target == middle_value:
-                return middle_index
+        while l <= r:
+            mid_index = (l + r) //2
+            if nums[mid_index] == target:
+                return mid_index
+            if nums[mid_index] > target:
+                r = mid_index -1
+            if nums[mid_index] < target:
+                l = mid_index + 1
         
         return -1
 
