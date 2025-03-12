@@ -12,22 +12,17 @@ class ListNode:
 #         self.val = val
 #         self.next = next
 class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        #two pointers a previous and a current one
-        previous = None
-        current = head #need to start move pointer(current) to the current head
-
-        while current:
-            temp = current.next #save off the next pointer 
-            current.next = previous #overwrite the next pointer to teh previous value you saved
-
-            previous = current #update for next iteration
-            current = temp #update current to the saved current.next pointer before you overwrote it
-
-        return previous 
-
-
+    def reverseListRecursive(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        def reverse(current, previous):
+            if current is None:
+                return previous
+            else:
+                next = current.next
+                current.next = previous
+                return reverse(next, current)
         
+        return reverse(head, None)
+
 
 class test_twoSum(unittest.TestCase):
     def test_twoSum_1(self):
