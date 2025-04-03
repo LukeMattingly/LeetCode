@@ -13,12 +13,12 @@ class Solution():
         if not root:
             return True
         queue = deque()
-        queue.append([(root, float("inf"), float("-inf"))])
+        queue.append([root, float("-inf"), float("inf")])
 
         while queue:
             node, largestLeft, smallestRight = queue.popleft()
 
-            if not (node.val > smallestRight and node.val < largestLeft):
+            if not (node.val < smallestRight and node.val > largestLeft):
                 return False
             
             if node.left:
