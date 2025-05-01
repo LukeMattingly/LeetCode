@@ -27,6 +27,7 @@ class Solution():
                 queue.append(node.left, max(node.val, maxVal))
             if node.right:
                 queue.append(node.right, max(node.val, maxVal))
+                
         
         return total_len
 

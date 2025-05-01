@@ -14,7 +14,7 @@ class Solution():
         for right in range(len(s2)):
             freq_count_window[s2[right]] += 1
 
-            #if window size exceeds s1 remove leftmovst character
+            #if window size exceeds s1 remove leftmost character
             if right - left +1 > len(s1):
                 freq_count_window[s2[left]] -=1
                 if freq_count_window[s2[left]] ==0:
