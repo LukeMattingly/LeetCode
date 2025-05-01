@@ -29,7 +29,7 @@ class WordDictionary:
                     for child in node.children.values():
                         if dfs(i + 1, child):
                             return True
-                        return False
+                    return False
                     
                 else: 
                     if letter not in node.children:
