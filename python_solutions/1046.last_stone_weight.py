@@ -10,8 +10,9 @@ class Solution:
         while len(max_heap) >= 2:
             y = heapq.heappop(max_heap)
             x = heapq.heappop(max_heap)
-            z_new = abs(y) - abs(x)
-            heapq.heappush(max_heap, -z_new)
+            if y > x: 
+                z_new = abs(y) - abs(x)
+                heapq.heappush(max_heap, -z_new)
         
         if len(max_heap) == 1:
             return abs(max_heap[0])
