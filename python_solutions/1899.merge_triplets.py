@@ -5,8 +5,8 @@ import unittest
 class Solution:
   def mergeTriplets(self, triplets: List[List[int]], target: List[int]) -> bool:
 
-        matchedFirst, matchedSecond, matchedThird = False
-        
+        matchedFirst = matchedSecond =  matchedThird = False
+
         for t in triplets:
             if target[0]== t[0] and target[1] >= t[1] and target[2] >= t[2]:
                 matchedFirst =True
