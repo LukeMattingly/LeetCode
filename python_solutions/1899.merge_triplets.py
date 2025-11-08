@@ -4,14 +4,20 @@ import unittest
 
 class Solution:
   def mergeTriplets(self, triplets: List[List[int]], target: List[int]) -> bool:
-        max_triplet = [0,0,0]
 
-        for t in triplets:
-            if all(t[i] <= target[i] for i in range(3)):
-                for j in range(3):
-                    max_triplet[j] = max(max_triplet[j], t[j])
+        matchedFirst, matchedSecond, matchedThird = False
         
-        return max_triplet == target
+        for t in triplets:
+            if target[0]== t[0] and target[1] >= t[1] and target[2] >= t[2]:
+                matchedFirst =True
+
+            if target[1] == t[1] and target[2] >= t[2] and target[0] >= t[0]:
+                 matchedSecond = True
+            
+            if target[2] == t[2] and target[1] >= t[1] and target[0] >= t[0]:
+                 matchedThird = True
+
+        return matchedFirst and matchedSecond and matchedThird
     
     
 class test_mergeTriplets(unittest.TestCase):
