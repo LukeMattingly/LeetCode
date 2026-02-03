@@ -12,6 +12,7 @@ class Solution:
         current = head
         n_behind= dummy
 
+        #create a fixed gap of n nodes
         while n>0 and current:
             current = current.next
             #wait n valuves
