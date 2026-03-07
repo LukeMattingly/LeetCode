@@ -1,27 +1,22 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class RateLimitLoggerConcurrent {
     Map<String, Integer> messages;
+
     public RateLimitLoggerConcurrent(){
-        messages = new ConcurrentHashMap<>();
+        messages = new HashMap<>();
     }
 
-    public boolean shouldPrintMessage(int timestamp, String message){
+    public synchronized boolean shouldPrintMessage(int timestamp, String message){
+        //default to 0 if no value found as any timestamp will be larger
+        int nextAllowedTime = messages.getOrDefault(message, 0);
 
-        AtomicBoolean allowedPrint = new AtomicBoolean(false);
+        if(timestamp < nextAllowedTime){
+            return false;
+        }
 
-        messages.compute(message, (k, nextAllowedTime)-> {
-            if(nextAllowedTime == null || timestamp>= nextAllowedTime){
-                allowedPrint.set(true);
-                return timestamp+10;
-            }
-            return nextAllowedTime;
-        });
-
-        return allowedPrint.get();
-
+        messages.put(message, timestamp +10);
+        return true;
     }
 }
