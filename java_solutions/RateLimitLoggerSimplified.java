@@ -9,9 +9,9 @@ public class RateLimitLoggerSimplified {
     }
 
     public boolean shouldPrintMessage(int timestamp, String message){
-        int oldTimestamp = messages.getOrDefault(message, 0);
+        int nextAllowedTime  = messages.getOrDefault(message, 0);
 
-        if( timestamp<oldTimestamp){
+        if( timestamp<nextAllowedTime ){
             return false;
         }
         messages.put(message, timestamp +10);
