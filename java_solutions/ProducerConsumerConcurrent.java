@@ -7,7 +7,7 @@ public class ProducerConsumerConcurrent<T> {
     private Semaphore emptySlots;
     private Semaphore fullSlots;
     private Semaphore mutex;
-    public ProducerConsumerConcurrent(int capacity, Semaphore emptySlots, Semaphore fullSlots){
+    public ProducerConsumerConcurrent(int capacity){
         this.emptySlots = new Semaphore(capacity);
         this.fullSlots = new Semaphore(0);
         this.mutex = new Semaphore(1);
