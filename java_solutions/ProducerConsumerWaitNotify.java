@@ -15,6 +15,11 @@ public class ProducerConsumerWaitNotify<T> {
     public synchronized void produce(T item)throws InterruptedException{
         if(buffer.size()==capacity){
             wait(); //buffer is full, producer must wait
+            // When a read calls wait();
+            //1. it releases the monitor lock (of synchronized?)
+            //2. it goes to sleep on that object
+            //3. it stays blocked until another thread calls notify or notify all
+            //4. before continuing, it must re-acquire the same monitor lock
         }
         buffer.offer(item);
 

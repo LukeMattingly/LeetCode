@@ -10,12 +10,12 @@ public class ProducerConsumerBlockingQueue <T>{
 
     public void produce(T item) throws InterruptedException {
         // blocks if full
-        buffer.put(item);
+        buffer.put(item); // use put for a blocking queue ( inserts the specific element, waiting if needed for space to becoem available if the queue is full)
     }
 
     public T consume()throws InterruptedException {
         // blocks if empty
-        return buffer.take();
-    }
+        return buffer.take(); // retrieves and removes teh head of the queue waiting if necessary until an element becomes available
+    } 
     
 }
