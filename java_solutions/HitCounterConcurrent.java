@@ -1,4 +1,4 @@
-import java.util.*;
+
 public class HitCounterConcurrent {
     int[] times;
     int [] counts;
