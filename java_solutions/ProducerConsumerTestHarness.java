@@ -2,13 +2,13 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.*;
 
-public class BoundedBuffer<T> {
+public class ProducerConsumerTestHarness<T> {
 
     Queue<T> buffer = new ArrayDeque<>();
     Semaphore fullSlots; 
     Semaphore emptySlots;
     ReentrantLock lock;
-    public BoundedBuffer(int capacity){
+    public ProducerConsumerTestHarness(int capacity){
         fullSlots = new Semaphore(0);
         emptySlots = new Semaphore(capacity);
         lock = new ReentrantLock();
@@ -20,7 +20,7 @@ public class BoundedBuffer<T> {
         // critical section
         lock.lock();
         try{
-            buffer.offer(item);
+            buffer.offer(item); //offer is anonblocking operation tries to insert immediately
         }finally{
             lock.unlock();
         }
@@ -46,7 +46,7 @@ public class BoundedBuffer<T> {
     
     public static void main(String[] args) {
     
-        BoundedBuffer<Integer> buffer = new BoundedBuffer<>(10);
+        ProducerConsumerTestHarness<Integer> buffer = new ProducerConsumerTestHarness<>(10);
 
         Runnable producerTask = () -> {
             int value = 1;
