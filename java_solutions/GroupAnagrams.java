@@ -2,19 +2,15 @@ import java.util.*;
 
 public class GroupAnagrams {
         public List<List<String>> groupAnagrams(String[] strs) {
-        List<List<String>> result = new ArrayList<>();
         Map<String,List<String>> anagramMap = new HashMap<>();
 
-        for(int i=0;i< strs.length; i++){
-            char [] strsCharArray = strs[i].toCharArray();
-            Arrays.sort(strsCharArray);
-            String key = new String(strsCharArray);
-            anagramMap.computeIfAbsent(key, k-> new ArrayList<>()).add(strs[i]);
+        for(String word: strs){
+            char[] chars = word.toCharArray();
+            Arrays.sort(chars);
+            String key = new String(chars);
+            anagramMap.computeIfAbsent(key, k-> new ArrayList<>()).add(word);
         }
         
-        for(List<String> anagram: anagramMap.values()){
-            result.add(anagram);
-        }
-        return result;
+        return new ArrayList<>(anagramMap.values());
     }
 }
