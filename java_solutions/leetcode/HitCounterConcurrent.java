@@ -1,3 +1,4 @@
+package leetcode;
 
 public class HitCounterConcurrent {
     int[] times;

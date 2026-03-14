@@ -1,3 +1,4 @@
+package leetcode;
 import java.util.*;
 public class DesignHitCounter {
     Deque<Integer> queue;

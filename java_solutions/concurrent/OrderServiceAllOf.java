@@ -1,3 +1,4 @@
+package concurrent;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -18,7 +19,7 @@ public class OrderServiceAllOf {
 
         // 2. Create a "Master Future" that completes when ALL futures in the list finish
         CompletableFuture<Void> allDone = CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
-        
+
         // 3. Wait for all to finish, then map the futures to their results
         return allDone.thenApply(v -> {
             return futures.stream()
