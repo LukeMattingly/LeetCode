@@ -1,6 +1,7 @@
 package streams;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -37,4 +38,21 @@ public class GroupAndAggregateEmployees {
     
     Map<String, Double> result = employees.stream().collect(Collectors.groupingBy(k->k.department, Collectors.averagingInt(s->s.salary)));
 
+    //Then write a second version that returns the highest-paid employee name per department as:
+    //where the key is the department and the value is the employee name.
+
+    Map<String, String> highestPaid = employees.stream()
+        .sorted((a,b)-> Integer.compare(b.salary, a.salary))
+        .collect(Collectors.toMap(
+            emp->emp.department,
+            emp->emp.name));
+
+    Map<String, String> highestPaid2 = employees.stream()
+    .collect(Collectors.groupingBy(
+        emp -> emp.department,
+        Collectors.collectingAndThen(
+            Collectors.maxBy(Comparator.comparingInt(emp -> emp.salary)),
+            opt -> opt.get().name
+        )
+    ));
 }
