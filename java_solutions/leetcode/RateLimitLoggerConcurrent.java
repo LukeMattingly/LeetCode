@@ -1,12 +1,11 @@
 package leetcode;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class RateLimitLoggerConcurrent {
-    Map<String, Integer> messages;
+    ConcurrentHashMap<String, Integer> messages;
 
     public RateLimitLoggerConcurrent(){
-        messages = new HashMap<>();
+        messages = new ConcurrentHashMap<>();
     }
 
     public synchronized boolean shouldPrintMessage(int timestamp, String message){
