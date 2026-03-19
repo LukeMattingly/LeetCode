@@ -2,6 +2,7 @@ package streams;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 public class MergeTwoStreamsWithoutDuplicates {
@@ -32,5 +33,20 @@ public class MergeTwoStreamsWithoutDuplicates {
     );
 
     List<Person> mergedLists = Stream.concat(listOne.stream(), listTwo.stream()).distinct().toList();
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == this) return true;
+        if(obj == null || getClass() != obj.getClass()) return false;
+        Person p = (Person) obj;
+        return Objects.equals(name, p.name) && age == p.age;
+    }
+
+    }
+
 }
