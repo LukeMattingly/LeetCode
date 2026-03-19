@@ -6,15 +6,16 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class BoundedBlockingQueue {
 
-    Queue<Integer> queue;
-    Semaphore fullSlots;
-    Semaphore emptySlots;
-    ReentrantLock lock;
+    private final Queue<Integer> queue;
+    private final Semaphore fullSlots;
+    private final Semaphore emptySlots;
+    private final ReentrantLock lock;
 
     BoundedBlockingQueue(int capacity){
         queue = new ArrayDeque<>();
         fullSlots = new Semaphore(0);
         emptySlots = new Semaphore(capacity);
+        lock = new ReentrantLock();
     }
 
     void enqueue(int element)throws InterruptedException{

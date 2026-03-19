@@ -12,9 +12,7 @@ public class GroupAnagrams {
             char [] chars = str.toCharArray();
             Arrays.sort(chars);
             String sortedStr = new String(chars);
-            List<String> currVal = map.getOrDefault(sortedStr, new ArrayList<>());
-            currVal.add(str);
-            map.put(sortedStr,currVal);
+            map.computeIfAbsent(sortedStr,k-> new ArrayList<>()).add(str);
         }
 
         return new ArrayList<>(map.values());
