@@ -1,6 +1,8 @@
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class ProductAggregator {
     ExecutorService executor = Executors.newFixedThreadPool(10); 
@@ -11,12 +13,15 @@ public class ProductAggregator {
         final ReviewService reviewService = new ReviewService();
 
         CompletableFuture<Double> priceFuture = CompletableFuture.supplyAsync(()-> priceService.getPrice(productId), executor)
+            .completeOnTimeout(-1.0, 500, TimeUnit.MILLISECONDS)
             .exceptionally( e -> 
                 {System.out.print("Price Service failed"); 
                 return -1.0;
             });
+        
 
         CompletableFuture<Boolean> inventoryFuture = CompletableFuture.supplyAsync(()-> inventoryService.inStock(productId), executor)
+            .completeOnTimeout(false, 500, TimeUnit.MILLISECONDS)
             .exceptionally(e -> {
                 System.out.println("Inventory Service failed");
                     return false;
@@ -24,10 +29,12 @@ public class ProductAggregator {
             });
 
         CompletableFuture<Double> reviewFuture = CompletableFuture.supplyAsync(()-> reviewService.getAverageRating(productId), executor)
+            .completeOnTimeout(-1.0, 500, TimeUnit.MILLISECONDS)
             .exceptionally(e-> {
                 System.out.println("Review Service Failed");
                 return -1.0;
             });
+
 
         CompletableFuture<Void> allDone = CompletableFuture.allOf(priceFuture, inventoryFuture, reviewFuture);
 
