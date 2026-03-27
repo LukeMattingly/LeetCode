@@ -42,4 +42,12 @@ public class SimpleSearchIndex{
         }
         return tokens;
     }
+
+    public List<String> search(String query){
+        if(query == null|| query.trim().isEmpty()) return Collections.emptyList();
+
+        List<String> results;
+
+        return results;
+    }
 }
