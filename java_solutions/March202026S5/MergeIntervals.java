@@ -36,7 +36,7 @@ public class MergeIntervals {
                 prevStart = mergedInterval[0];
                 prevEnd = mergedInterval[1];
             }
-            else{ //            //prev end is smaller than new start no merge conflict
+            else{ //prev end is smaller than new start no merge conflict
                 resultList.add(List.of(prevStart, prevEnd));
                 prevStart = intervals[i][0];
                 prevEnd = intervals[i][1];

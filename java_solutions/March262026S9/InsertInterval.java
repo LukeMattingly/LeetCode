@@ -18,23 +18,24 @@ public class InsertInterval {
         int newStart = newInterval[0];
         int newEnd = newInterval[1];
 
-        int[][] result = new int[intervals.length][2];
         List<int[]> resultList = new ArrayList<>();
 
         for(int i =0; i< intervals.length; i++){
             int currentStart = intervals[i][0];
             int currentEnd = intervals[i][1];
-            if(newEnd >= currentStart){ //[i][0] is start of 'current' MERGE
+
+            if(currentEnd < newStart){ //current end before new start, add current interval
+                resultList.add(intervals[i]);
+            }else if(currentStart > newEnd){ //prepend new, then postpend current + rest
+                resultList.add(new int[]{newStart, newEnd});
+                resultList.add(intervals[i]);
+            }else{ //overlap conditions
                 newStart = Math.min(newStart,currentStart);
                 newEnd = Math.max(newEnd, currentEnd);
-            }else if( newEnd < currentEnd ){ // ends before the end
-                resultList.add(new int[]{newStart, newEnd});
-                resultList.add(intervals[i:-1])//all of the rest of the intervals
-                break;
             }
-            resultList.add(intervals[i]);
+
+            //need to determine if we should add the merged value or not. 
         }
-        int[] res = resultList.stream().mapToInt(Integer::intValue).toArray();
-        return new int[][]
+        return resultList.toArray(new int[resultList.size()][]);
     }
 }
