@@ -21,6 +21,8 @@ public class ProductAggregatorWithStructuredConccurrency {
             double price = getOrDefault(priceTask, -1.0);
             boolean inventory = getOrDefault(inventoryTask, false);
             double rating = getOrDefault(reviewTask, 0.0);
+
+            return new ProductView(productId, rating, price, inventory);
         }
     }
 
